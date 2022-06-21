@@ -9,10 +9,34 @@ body {
     background-color: black;
 }
 
+.gridElement:hover {
+    background-color: blue;
+}
+
 #container {
     display: grid;
-    gap: 0.2vw;
-    background-color: gray;
+    gap: 0.1vw;
+    background-color: aliceblue;
+    padding: 0.2vw;
+    justify-content: center;
+    align-items: center;
+    border: 0.2vw black solid;
+    border-radius: 0.5vw;
+    
 
 }
 
+#containerBorder {
+    padding: 1vw;
+    background-color: rgb(255, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0.2vw black solid;
+    border-radius: 1vw;
+
+}
+
+.blue {
+    background-color: blue;
+}
