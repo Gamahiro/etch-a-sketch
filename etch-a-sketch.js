@@ -15,7 +15,7 @@ function listenGridbox() {
     for (let i = 0; i < gridboxes.length; i++) {
 
         gridboxes[i].addEventListener("mouseover", () => {
-            gridboxes[i].style.backgroundColor = "blue";
+            gridboxes[i].style.backgroundColor = "gray";
             gridboxes[i].style.width = containerWidth / xAmount;
             gridboxes[i].style.height = containerHeight / yAmount;
         });
