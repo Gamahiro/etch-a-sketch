@@ -1,6 +1,10 @@
 body {
     background-color: gray;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .gridElement {
@@ -28,6 +32,7 @@ body {
     padding: 1vw;
     background-color: rgb(255, 0, 0);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 0.2vw black solid;
