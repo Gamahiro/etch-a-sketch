@@ -9,9 +9,7 @@ body {
     background-color: black;
 }
 
-.gridElement:hover {
-    background-color: blue;
-}
+
 
 #container {
     display: grid;
