@@ -5,31 +5,27 @@ const gridboxes = document.getElementsByClassName("gridElement");
 const initiateButton = document.getElementById("initiateGridboxes");
 
 
-let xGrid = 15;
-let yGrid = 15;
+let containerHeight = parseInt(getComputedStyle(container).height);
+let containerWidth = parseInt(getComputedStyle(container).width);
 
-
-
-let boxSize = xGrid * yGrid;
-
-function changeContainerSize(xAmount, yAmount) {
-    containerBorder.style.width = "" + ((xAmount * 1.1) + 1) + "vw";
-    containerBorder.style.height = "" + ((yAmount * 1.1) + 1) + "vw";
-    container.style.width = "" + (xAmount * 1.1) + "vw";
-    container.style.height = "" + (yAmount * 1.1) + "vw";
-
-}
+let xAmount = 30;
+let yAmount = 30;
 
 function listenGridbox() {
     for (let i = 0; i < gridboxes.length; i++) {
+
         gridboxes[i].addEventListener("mouseover", () => {
             gridboxes[i].style.backgroundColor = "blue";
+            gridboxes[i].style.width = containerWidth / xAmount;
+            gridboxes[i].style.height = containerHeight / yAmount;
         });
+
+        
     }
+
 }
 
 //creates columns and rows based on x and y axis, also runs a for loop to create divs (x * y) times
-//@todo make static containersize with gridboxes scaling depending on amount, use % ex. gridboxes.style.width = "x" + "%"
 function createGridBox(xAmount, yAmount) {
     console.log(xAmount);
 
@@ -46,20 +42,19 @@ function createGridBox(xAmount, yAmount) {
         }
     }
 
-    changeContainerSize(xAmount, yAmount);
-    container.style.gridTemplateColumns = "repeat(" + xAmount + ", 1vw)";
-    container.style.gridTemplateRows = "repeat(" + yAmount + ", 1vw)";
 
+    container.style.gridTemplateRows = "repeat(" + xAmount + ", " + (containerWidth / xAmount)  + "px";
+    container.style.gridTemplateColumns = "repeat(" + yAmount + ", " + (containerHeight/ yAmount) + "px";
 
     for (let i = 0; i < (xAmount * yAmount); i++) {
 
         const gridbox = document.createElement('div');
         gridbox.className = "gridElement";
         container.appendChild(gridbox);
-
     }
     listenGridbox();
-
+    
+    
 }
 
 function removeGridBox() {
@@ -70,7 +65,7 @@ function removeGridBox() {
 
 
 
-createGridBox(xGrid, yGrid);
+createGridBox(xAmount, yAmount);
 initiateButton.addEventListener('click', initiateEtch);
 
 
